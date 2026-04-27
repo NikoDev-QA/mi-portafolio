@@ -1,0 +1,282 @@
+/* =========================================
+   VARIABLES GLOBALES (Tus colores y fuentes)
+   Buena práctica: Todo centralizado aquí.
+   ========================================= */
+:root {
+    --color-fondo: #121212; /* Un gris casi negro, elegante y no cansa la vista */
+    --color-texto: #e0e0e0; /* Blanco suave */
+    --color-primario: #00ffcc; /* Un tono cyan/menta para darle el toque tech */
+    --color-secundario: #1e1e1e; /* Gris oscuro para las tarjetas de habilidades */
+    --fuente-principal: 'Poppins', sans-serif;
+    --transicion-suave: all 0.3s ease; /* Para que las animaciones sean fluidas */
+}
+
+/* =========================================
+   RESETEO BÁSICO 
+   Buena práctica: Limpia los márgenes por defecto de los navegadores
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Hace que al hacer clic en el menú bajes suavemente */
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* =========================================
+   NAVEGACIÓN (Cabecera fija)
+   ========================================= */
+.cabecera {
+    background-color: rgba(18, 18, 18, 0.8); /* Fondo semi-transparente */
+    backdrop-filter: blur(10px); /* Efecto Glassmorphism (vidrio esmerilado) */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navegacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.logo {
+    color: var(--color-primario);
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.enlaces-nav {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.enlaces-nav a {
+    color: var(--color-texto);
+    text-decoration: none;
+    font-weight: 400;
+    transition: var(--transicion-suave);
+}
+
+.enlaces-nav a:hover {
+    color: var(--color-primario);
+}
+
+/* =========================================
+   ESTRUCTURA PRINCIPAL Y SECCIONES
+   ========================================= */
+.contenedor-principal {
+    margin-top: 80px; /* Evita que el menú fijo tape el inicio */
+}
+
+section {
+    padding: 100px 5%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.titulo-seccion {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 50px;
+    color: var(--color-texto);
+    position: relative;
+}
+
+/* Una pequeña línea decorativa debajo de los títulos */
+.titulo-seccion::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--color-primario);
+    margin: 10px auto 0;
+    border-radius: 5px;
+}
+
+/* =========================================
+   SECCIÓN: INICIO
+   ========================================= */
+.inicio {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.saludo {
+    font-size: 20px;
+    font-weight: 300;
+    color: #aaa;
+}
+
+.nombre {
+    font-size: 55px;
+    font-weight: 600;
+    margin: 10px 0;
+    /* Efecto de texto con gradiente. Súper moderno. */
+    background: linear-gradient(90deg, var(--color-primario), #0077ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.profesion {
+    font-size: 24px;
+    font-weight: 400;
+    color: #ccc;
+    margin-bottom: 25px;
+}
+
+.descripcion-corta {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    color: #888;
+}
+
+.boton-principal {
+    display: inline-block;
+    padding: 12px 35px;
+    background-color: transparent;
+    color: var(--color-primario);
+    border: 2px solid var(--color-primario);
+    border-radius: 30px; /* Bordes redondeados */
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transicion-suave);
+}
+
+.boton-principal:hover {
+    background-color: var(--color-primario);
+    color: var(--color-fondo);
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.4); /* Brillo neón al pasar el mouse */
+}
+
+/* =========================================
+   SECCIÓN: SOBRE MÍ
+   ========================================= */
+.contenido-sobre-mi p {
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    font-size: 18px;
+    color: #bbb;
+}
+
+/* =========================================
+   SECCIÓN: HABILIDADES (Tarjetas)
+   ========================================= */
+.cuadricula-habilidades {
+    display: grid;
+    /* Esta línea hace la magia responsive: adapta las columnas automáticamente */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px;
+}
+
+.tarjeta-habilidad {
+    background-color: var(--color-secundario);
+    padding: 40px 30px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: var(--transicion-suave);
+}
+
+.tarjeta-habilidad:hover {
+    transform: translateY(-10px); /* La tarjeta "flota" hacia arriba */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    border-color: rgba(0, 255, 204, 0.3); /* Borde sutil del color primario */
+}
+
+.titulo-habilidad {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: var(--color-texto);
+}
+
+.tarjeta-habilidad p {
+    color: #888;
+    font-size: 15px;
+}
+
+/* =========================================
+   PIE DE PÁGINA (Contacto)
+   ========================================= */
+.pie-de-pagina {
+    background-color: #080808;
+    text-align: center;
+    padding: 60px 5%;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.derechos {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* =========================================
+   ADAPTACIÓN A MÓVILES (Android/iOS)
+   Buena práctica: Diseño adaptable.
+   ========================================= */
+@media (max-width: 768px) {
+    .navegacion {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 5%;
+    }
+    
+    .enlaces-nav {
+        /* En pantallas pequeñas, achicamos un poco el menú */
+        gap: 15px;
+        font-size: 14px;
+    }
+    
+    .nombre {
+        font-size: 40px; /* Letra más chica para que no se salga de la pantalla */
+    }
+    
+    .profesion {
+        font-size: 20px;
+    }
+    
+    section {
+        padding: 80px 5%; /* Menos espacio en blanco en celulares */
+    }
+}
+/* =========================================
+   BOTÓN LINKEDIN
+   ========================================= */
+.boton-linkedin {
+    display: inline-block;
+    padding: 12px 35px;
+    background-color: #0a66c2; /* El azul oficial y profesional de LinkedIn */
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 30px;
+    border: 2px solid #0a66c2;
+    transition: var(--transicion-suave);
+}
+
+.boton-linkedin:hover {
+    background-color: transparent;
+    color: #0a66c2;
+    box-shadow: 0 0 15px rgba(10, 102, 194, 0.4);
+}
